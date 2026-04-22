@@ -1,83 +1,135 @@
-# 🔐 Secure Password Vault
+```
+███████╗███████╗ ██████╗██╗   ██╗██████╗ ███████╗    ██╗   ██╗ █████╗ ██╗   ██╗██╗  ████████╗
+██╔════╝██╔════╝██╔════╝██║   ██║██╔══██╗██╔════╝    ██║   ██║██╔══██╗██║   ██║██║  ╚══██╔══╝
+███████╗█████╗  ██║     ██║   ██║██████╔╝█████╗      ██║   ██║███████║██║   ██║██║     ██║   
+╚════██║██╔══╝  ██║     ██║   ██║██╔══██╗██╔══╝      ╚██╗ ██╔╝██╔══██║██║   ██║██║     ██║   
+███████║███████╗╚██████╗╚██████╔╝██║  ██║███████╗     ╚████╔╝ ██║  ██║╚██████╔╝███████╗██║   
+╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝      ╚═══╝  ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝   
+```
 
-A fully local, AES-256 encrypted password manager built with Python and Streamlit. No cloud, no subscriptions — your passwords stay on your machine.
+<div align="center">
 
----
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![AES-256](https://img.shields.io/badge/Encryption-AES--256-darkgreen?style=for-the-badge&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge)
 
-## 📸 Screenshots
+**A fully local, AES-256 encrypted password manager. No cloud. No subscriptions. No trust required.**
 
-| Master Password Setup | Add Password |
+</div>
+
+<hr>
+
+## Overview
+
+Secure Vault is a lightweight, offline password manager built with Python and Streamlit. Every credential is encrypted using AES-256 CBC before being written to disk — your master password is never stored, only a PBKDF2-derived key hash is used for verification.
+
+Your data never leaves your machine.
+
+<hr>
+
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center"><b>Master Password Setup</b></td>
+    <td align="center"><b>Add Password</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/master_pwd.png" width="400"/></td>
+    <td><img src="screenshots/add.png" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>View Passwords</b></td>
+    <td align="center"><b>Search</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/view.png" width="400"/></td>
+    <td><img src="screenshots/search.png" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Delete Entry</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/delete.png" width="400"/></td>
+    <td></td>
+  </tr>
+</table>
+
+<hr>
+
+## Security Architecture
+
+| Layer | Implementation |
 |---|---|
-| ![Master Password](screenshots/master_pwd.png) | ![Add Password](screenshots/add.png) |
+| Encryption Algorithm | AES-256 CBC |
+| Key Derivation | PBKDF2-SHA256 — 100,000 iterations |
+| Initialization Vector | Random 16-byte IV generated per entry |
+| Salt | Random 16-byte salt generated on setup |
+| Master Password | Never stored — only the derived key hash |
+| Storage | Local encrypted JSON file |
 
-| View Passwords | Search |
-|---|---|
-| ![View](screenshots/view.png) | ![Search](screenshots/search.png) |
+> The database file `secure_db.json` is excluded from version control via `.gitignore`. Never commit it.
 
-| Delete |
-|---|
-| ![Delete](screenshots/delete.png) |
+<hr>
 
----
+## Features
 
-## ✨ Features
+- Master password authentication with PBKDF2 key derivation
+- AES-256 CBC encryption for every stored credential
+- Live password strength analysis on input
+- Show / hide toggle for stored passwords
+- One-click copy to clipboard
+- Site name search
+- Entry deletion by index
 
-- 🔑 **Master Password** — single password to unlock your entire vault
-- 🛡️ **AES-256 CBC Encryption** — every entry encrypted with a unique IV
-- 🔒 **PBKDF2 Key Derivation** — master password hashed with 100,000 iterations, never stored directly
-- 💪 **Live Password Strength Meter** — real-time feedback as you type (Weak / Medium / Strong)
-- 👁️ **Show / Hide Passwords** — reveal only when needed
-- 📋 **One-Click Copy** — copy to clipboard without exposing on screen
-- 🔍 **Search** — instantly find entries by site name
-- ❌ **Delete** — remove entries by index
+<hr>
 
----
+## Getting Started
 
-## 🛠️ Tech Stack
+### Prerequisites
 
-- **Python 3.x**
-- **Streamlit** — UI framework
-- **PyCryptodome** — AES encryption & PBKDF2
-- **Pyperclip** — clipboard support
-- **JSON** — local encrypted storage
+- Python 3.7 or higher
 
----
+### Installation
 
-## 🚀 Getting Started
-
-### 1. Clone the repository
+**1. Clone the repository**
 ```bash
-git clone https://github.com/YOUR_USERNAME/secure-password-vault.git
+git clone https://github.com/cipher-saif/secure-password-manager.git
 cd secure-password-vault
 ```
 
-### 2. Install dependencies
+**2. Install dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run the app
+**3. Launch the app**
 ```bash
 streamlit run secure_vault.py
 ```
 
-### 4. First Launch
-- You'll be prompted to create a **Master Password** (min. 8 characters)
-- After setup, log in with your master password every time you open the app
+**4. First launch**
 
----
+You will be prompted to create a master password (minimum 8 characters). This is the only password you will ever need to remember.
 
-## 📁 Project Structure
+<hr>
+
+## Project Structure
 
 ```
 secure-password-vault/
 │
-├── secure_vault.py       # Main application
-├── secure_db.json        # Encrypted database (auto-created on first run)
-├── requirements.txt      # Dependencies
-├── .gitignore            # Files to exclude from git
-├── README.md             # You're here
-└── screenshots/          # App screenshots
+├── secure_vault.py         # Core application
+├── secure_db.json          # Encrypted local database (auto-generated, git-ignored)
+├── requirements.txt        # Python dependencies
+├── .gitignore
+├── LICENSE
+├── README.md
+│
+└── screenshots/
     ├── master_pwd.png
     ├── add.png
     ├── view.png
@@ -85,31 +137,36 @@ secure-password-vault/
     └── delete.png
 ```
 
----
+<hr>
 
-## 🔐 Security Details
+## Dependencies
 
-| Feature | Implementation |
+| Package | Purpose |
 |---|---|
-| Encryption | AES-256 CBC |
-| Key Derivation | PBKDF2-SHA256, 100,000 iterations |
-| IV | Random 16-byte IV per entry |
-| Salt | Random 16-byte salt |
-| Storage | Local JSON file only |
+| `streamlit` | Web UI framework |
+| `pycryptodome` | AES encryption and PBKDF2 key derivation |
+| `pyperclip` | System clipboard access |
 
-> ⚠️ **Note:** `secure_db.json` is excluded from git via `.gitignore` to protect your data. Never commit this file.
+Install all at once:
+```bash
+pip install -r requirements.txt
+```
 
----
+<hr>
 
-## ⚙️ Requirements
+## Notes
 
-- Python 3.7+
-- Works on Windows, macOS, Linux
+- `pyperclip` requires a desktop environment. The copy feature works locally but will not function on cloud-hosted Streamlit deployments.
+- The `secure_db.json` file holds all your encrypted data. Back it up if needed — losing it means losing your vault.
 
-> **Note:** The copy-to-clipboard feature (`pyperclip`) requires a display environment. It works locally but may not work on cloud-hosted Streamlit.
+<hr>
 
----
+## License
 
-## 📄 License
+Distributed under the MIT License. See `LICENSE` for details.
 
-MIT License — free to use, modify, and distribute.
+<hr>
+
+<div align="center">
+Built with Python — designed for privacy.
+</div>
