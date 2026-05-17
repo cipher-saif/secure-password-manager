@@ -1,10 +1,11 @@
 ```
-███████╗███████╗ ██████╗██╗   ██╗██████╗ ███████╗    ██╗   ██╗ █████╗ ██╗   ██╗██╗  ████████╗
-██╔════╝██╔════╝██╔════╝██║   ██║██╔══██╗██╔════╝    ██║   ██║██╔══██╗██║   ██║██║  ╚══██╔══╝
-███████╗█████╗  ██║     ██║   ██║██████╔╝█████╗      ██║   ██║███████║██║   ██║██║     ██║   
-╚════██║██╔══╝  ██║     ██║   ██║██╔══██╗██╔══╝      ╚██╗ ██╔╝██╔══██║██║   ██║██║     ██║   
-███████║███████╗╚██████╗╚██████╔╝██║  ██║███████╗     ╚████╔╝ ██║  ██║╚██████╔╝███████╗██║   
-╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝      ╚═══╝  ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝   
+
+██████╗░░██╗░░░░░░░██╗██████╗░  ███╗░░░███╗░█████╗░███╗░░██╗░█████╗░░██████╗░███████╗██████╗░░░░
+██╔══██╗░██║░░██╗░░██║██╔══██╗  ████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝░██╔════╝██╔══██╗░░░
+██████╔╝░╚██╗████╗██╔╝██║░░██║  ██╔████╔██║███████║██╔██╗██║███████║██║░░██╗░█████╗░░██████╔╝░░░
+██╔═══╝░░░████╔═████║░██║░░██║  ██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║░░╚██╗██╔══╝░░██╔══██╗░░░
+██║░░░░░░░╚██╔╝░╚██╔╝░██████╔╝  ██║░╚═╝░██║██║░░██║██║░╚███║██║░░██║╚██████╔╝███████╗██║░░██║██╗
+╚═╝░░░░░░░░╚═╝░░░╚═╝░░╚═════╝░  ╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚═╝╚═╝  
 ```
 
 <div align="center">
@@ -15,7 +16,7 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge)
 
-**A fully local, AES-256 encrypted password manager. No cloud. No subscriptions. No trust required.**
+**A fully local, AES-256 encrypted password vault. No cloud. No subscriptions. No trust required.**
 
 </div>
 
@@ -23,7 +24,7 @@
 
 ## Overview
 
-Secure Vault is a lightweight, offline password manager built with Python and Streamlit. Every credential is encrypted using AES-256 CBC before being written to disk — your master password is never stored, only a PBKDF2-derived key hash is used for verification.
+Password Vault is a lightweight, offline password manager built with Python and Streamlit. Every credential is encrypted using AES-256 CBC before being written to disk — your master password is never stored, only a PBKDF2-derived key hash is used for verification.
 
 Your data never leaves your machine.
 
